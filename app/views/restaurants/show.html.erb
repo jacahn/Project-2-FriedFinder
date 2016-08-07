@@ -1,0 +1,46 @@
+<!-- <%= @restaurant.inspect %> -->
+
+<h2><%= @restaurant.name %></h2>
+<h3><%= @restaurant.address %></h3>
+<h3><%= @restaurant.url %></h3>
+
+<h2>Reviews</h2>
+<% @restaurant.reviews.each do |review| %>
+  <p>
+    Reviewer:
+    <%= review.reviewer %>
+  </p>
+  <p>
+    Review:
+    <%= review.body %>
+  </p>
+  <p>
+    Rating:
+    <%= review.rating %>
+  </p>
+++++++++++++++++++++++++++++++++++++++
+<% end %>
+
+<h2>Add a review:</h2>
+<%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
+  <p>
+    <%= f.label :reviewer %>
+    <%= f.text_field :reviewer %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to "Delete", restaurant_path(@restaurant), method: :delete%>
+<%= link_to "Edit", edit_restaurant_path(@restaurant)%>
+<%= link_to "Back", restaurants_path%>
