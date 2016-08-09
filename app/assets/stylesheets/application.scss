@@ -14,3 +14,11 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+ html, body, #map{
+  height: 100%;
+  margin:10px;
+  padding: 10px;
+  font-family: 'Lakki Reddy', cursive
+ }

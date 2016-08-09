@@ -1,14 +1,50 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Friedfinder</title>
+    <meta name="viewport" content="initial-scale=.8, user-scalable=no">
     <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Lakki+Reddy' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCKFv7T0osuwhHXJgmuRhoJTZwRJ6aEHFo"></script>
+    <script>
+
+    </script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="container">
+    <div id="header"><h1>FRIED CHICKEN FINDER</h1></div>
+    <div class="row">
+    		<div class="col-md-3">
+
+    			<button type="button" class="btn btn-default">
+    				Default
+    			</button>
+    		</div>
+    		<div class="col-md-3">
+
+    			<button type="button" class="btn btn-default">
+    				Default
+    			</button>
+    		</div>
+    		<div class="col-md-3">
+
+    			<button type="button" class="btn btn-default">
+    				Default
+    			</button>
+    		</div>
+    		<div class="col-md-3">
+
+    			<button type="button" class="btn btn-default">
+    				Default
+    			</button>
+    		</div>
+    	</div>
     <%= yield %>
+    <div id="map"></div>
   </body>
 </html>
