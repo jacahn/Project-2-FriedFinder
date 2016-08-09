@@ -18,14 +18,19 @@
     Rating:
     <%= review.rating %>
   </p>
-++++++++++++++++++++++++++++++++++++++
+
 <% end %>
 
 <h2>Add a review:</h2>
 <%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
   <p>
     <%= f.label :reviewer %>
-    <%= f.text_field :reviewer %>
+    <%= current_user.email %>
+    <%  if current_user
+          @reviewer = current_user
+        else
+          f.text_field :reviewer
+        end%>
   </p>
   <p>
     <%= f.label :body %>
