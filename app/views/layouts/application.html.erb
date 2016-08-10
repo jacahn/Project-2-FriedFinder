@@ -19,7 +19,7 @@
   <body class="container">
     <div id="header"><h1>FRIED CHICKEN FINDER</h1></div>
     <div class="row">
-    		<div class="col-md-3">
+    		<!-- <div class="col-md-3">
 
     			<button type="button" class="btn btn-default">
     				Default
@@ -42,18 +42,18 @@
     			<button type="button" class="btn btn-default">
     				Default
     			</button>
-    		</div>
+    		</div> -->
     	</div>
       <p class = "notice"><%= notice %></p>
       <p><%= alert %></p>
       <%if !current_user%>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %><br>
+        <%= link_to "Sign In", new_user_session_path %><br>
       <% else %>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
         <%= current_user.email %>
       <% end %>
     <%= yield %>
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
   </body>
 </html>

@@ -1,12 +1,20 @@
 class ReviewsController < ApplicationController
   http_basic_authenticate_with name: "jac", password: "secret", only: :destroy
-
+  def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.new
+  end
   def create
-    @review = Review.create!(review_params.merge(user: current_user))
-    redirect_to review_path(@review)
-    # @restaurant = Restaurant.find(params[:restaurant_id])
-    # @review = @restaurant.reviews.create(review_params)
-    # redirect_to restaurant_path(@restaurant)
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.new(review_params)
+    if current_user
+    @review.user_id = current_user.id
+    end
+
+    @review.save
+    # redirect_to review_path(@review)
+    # @review = Review.create!(review_params.merge(user: current_user))
+    redirect_to restaurant_path(@restaurant)
   end
 
   def destroy
@@ -21,6 +29,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:reviewer, :body, :rating)
+    params.require(:review).permit(:user, :body, :rating, :restaurant_id)
   end
 end

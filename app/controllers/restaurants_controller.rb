@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
   http_basic_authenticate_with name: "jac", password: "secret", except: [:index, :show]
 
   def index

@@ -6,46 +6,49 @@
 
 <h2>Reviews</h2>
 <% @restaurant.reviews.each do |review| %>
-  <p>
-    Reviewer:
-    <%= review.reviewer %>
-  </p>
-  <p>
-    Review:
-    <%= review.body %>
-  </p>
-  <p>
-    Rating:
-    <%= review.rating %>
-  </p>
+<p>
+  User:
+  <%= review.user.email %>
+</p>
+<p>
+  Review:
+  <%= review.body %>
+</p>
+<p>
+  Rating:
+  <%= review.rating %>
+</p>
 
 <% end %>
 
 <h2>Add a review:</h2>
 <%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
-  <p>
-    <%= f.label :reviewer %>
-    <%= current_user.email %>
-    <%  if current_user
-          @reviewer = current_user
-        else
-          f.text_field :reviewer
-        end%>
-  </p>
-  <p>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.label :rating %>
-    <%= f.text_field :rating %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<p>
+
+  <%  if current_user %>
+    <%= f.label :user %>
+    <% @user = current_user %>
+  <% else %>
+    Anonymous User
+  <%end%>
+</p>
+<p>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+</p>
+<p>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+</p>
+<p>
+  <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
 <% end %>
 
 
-<%= link_to "Delete", restaurant_path(@restaurant), method: :delete%>
-<%= link_to "Edit", edit_restaurant_path(@restaurant)%>
-<%= link_to "Back", restaurants_path%>
+<%= link_to "Delete", restaurant_path(@restaurant), method: :delete%><br>
+<%= link_to "Edit", edit_restaurant_path(@restaurant)%><br>
+<%= link_to "Back", restaurants_path%><br>
