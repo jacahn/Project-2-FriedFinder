@@ -45,7 +45,7 @@ div {
 
 a {
   font-size: 20px;
-  padding: 20px 20px;
+  border: 20px 20px;
   border-top: 20px;
 
 }
@@ -58,5 +58,9 @@ html, body, #map{
   height: 100%;
   margin:10px;
   padding: 10px;
-  font-family: 'Lakki Reddy', cursive
+  font-family: 'Lakki Reddy', cursive;
+}
+
+.reviews {
+  border-bottom: 1px solid black;
 }
