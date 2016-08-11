@@ -3,6 +3,11 @@
 <h2><%= @restaurant.name %></h2>
 <h3><%= @restaurant.address %></h3>
 <h3><%= @restaurant.url %></h3>
+
+<%= link_to "Delete the Restaurant", restaurant_path(@restaurant), method: :delete%><br>
+<%= link_to "Edit the Restaurant", edit_restaurant_path(@restaurant)%><br>
+<%= link_to "Back to Restaurants", restaurants_path%><br>
+
 <% if @restaurant.reviews.present? %>
 <h2>Reviews</h2>
 <% end %>
@@ -53,8 +58,3 @@
   </p>
   <% end %>
 <% end %>
-
-
-<%= link_to "Delete the Restaurant", restaurant_path(@restaurant), method: :delete%><br>
-<%= link_to "Edit the Restaurant", edit_restaurant_path(@restaurant)%><br>
-<%= link_to "Back to Restaurants", restaurants_path%><br>
