@@ -16,8 +16,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+     <!-- <img src="http://a57.foxnews.com/global.fncstatic.com/static/managed/img/fn2/travel/0/0/friedchicken.jpg" alt="friend chicken image" /> -->
+     <div id="header"><h1>FRIED CHICKEN FINDER</h1></div>
+  </header>
+
   <body class="container">
-    <div id="header"><h1>FRIED CHICKEN FINDER</h1></div>
+
     <div class="row">
     		<!-- <div class="col-md-3">
 
@@ -44,7 +49,7 @@
     			</button>
     		</div> -->
     	</div>
-      <p class = "notice"><%= notice %></p>
+      <!-- <p class = "notice"><%= notice %></p>
       <p><%= alert %></p>
       <%if !current_user%>
         <%= link_to "Sign Up", new_user_registration_path %><br>
@@ -52,7 +57,7 @@
       <% else %>
         <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
         <%= current_user.email %>
-      <% end %>
+      <% end %> -->
     <%= yield %>
     <!-- <div id="map"></div> -->
   </body>

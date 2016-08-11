@@ -8,7 +8,9 @@ class ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.new(review_params)
     if current_user
-    @review.user_id = current_user.id
+      @review.user_id = current_user.id
+    else
+      flash[:alert] = "You must login to create new review"
     end
 
     @review.save
