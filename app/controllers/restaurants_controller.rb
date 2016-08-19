@@ -1,7 +1,9 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :create, :destroy, :new]
   http_basic_authenticate_with name: "jac", password: "secret", except: [:index, :show]
 
   def index
+
     @restaurants = Restaurant.all
   end
 

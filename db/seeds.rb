@@ -10,7 +10,7 @@ Arlington, VA 22201", url: "http://thelibertytavern.com/"}
 ])
 
 reviews = Review.create([
-  {reviewer: "ChickenLuvr", body: "Seriously good fried chicken", rating: 9, restaurant: restaurants[0]},
-  {reviewer: "GimmeDatChick49", body: "Nummers", rating: 8, restaurant: restaurants[1]},
-  {reviewer: "happy eater", body: "I travel 2 hours every weekend to eat here.", rating: 9, restaurant: restaurants[2]}
+  {user: "ChickenLuvr", body: "Seriously good fried chicken", rating: 9, restaurant: restaurants[0]},
+  {user: "GimmeDatChick49", body: "Nummers", rating: 8, restaurant: restaurants[1]},
+  {user: "happy eater", body: "I travel 2 hours every weekend to eat here.", rating: 9, restaurant: restaurants[2]}
 ])
