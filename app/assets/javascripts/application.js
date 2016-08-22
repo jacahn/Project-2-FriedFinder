@@ -22,6 +22,7 @@ var request;
 var service;
 var markers = [];
 
+// google doesn't seem to be defined here. What were your plans for google maps?
 function initialize() {
   var center = new google.maps.LatLng(38.9048728,-77.0340283);
   map = new google.maps.Map(document.getElementById('map'),{

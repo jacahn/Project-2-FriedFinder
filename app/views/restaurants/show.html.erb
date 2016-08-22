@@ -9,6 +9,7 @@
 <%= link_to "Back to Restaurants", restaurants_path%><br>
 
 <% if @restaurant.reviews.present? %>
+<!-- remember to nest code -->
 <h2>Reviews</h2>
 <% end %>
 <% @restaurant.reviews.each do |review| %>

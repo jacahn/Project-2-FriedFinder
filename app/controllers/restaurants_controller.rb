@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :create, :destroy, :new]
+  # i don't think you want both basic authenticate and authenticate_user!
   http_basic_authenticate_with name: "jac", password: "secret", except: [:index, :show]
 
   def index
