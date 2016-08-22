@@ -4,11 +4,18 @@
 <h3><%= @restaurant.address %></h3>
 <h3><%= @restaurant.url %></h3>
 
+<%= link_to "Delete the Restaurant", restaurant_path(@restaurant), method: :delete%><br>
+<%= link_to "Edit the Restaurant", edit_restaurant_path(@restaurant)%><br>
+<%= link_to "Back to Restaurants", restaurants_path%><br>
+
+<% if @restaurant.reviews.present? %>
 <h2>Reviews</h2>
+<% end %>
 <% @restaurant.reviews.each do |review| %>
+  <div class="reviews">
   <p>
-    Reviewer:
-    <%= review.reviewer %>
+    User:
+    <%= review.user.email %>
   </p>
   <p>
     Review:
@@ -18,15 +25,23 @@
     Rating:
     <%= review.rating %>
   </p>
-++++++++++++++++++++++++++++++++++++++
+  </div>
 <% end %>
 
+<% if user_signed_in?%>
 <h2>Add a review:</h2>
 <%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
-  <p>
-    <%= f.label :reviewer %>
-    <%= f.text_field :reviewer %>
-  </p>
+<p>
+
+  <%  if current_user %>
+    <%= f.label :user %>
+    <% @user = current_user %>
+  <% else %>
+    Anonymous User
+  <%end%>
+</p>
+
+
   <p>
     <%= f.label :body %>
     <%= f.text_area :body %>
@@ -36,11 +51,10 @@
     <%= f.text_field :rating %>
   </p>
   <p>
+    <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
+  <% end %>
 <% end %>
-
-
-<%= link_to "Delete", restaurant_path(@restaurant), method: :delete%>
-<%= link_to "Edit", edit_restaurant_path(@restaurant)%>
-<%= link_to "Back", restaurants_path%>
