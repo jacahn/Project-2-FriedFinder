@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   http_basic_authenticate_with name: "jac", password: "secret", only: :destroy
+  # think you probably want the authenticate method here and remove the basic auth
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.new
